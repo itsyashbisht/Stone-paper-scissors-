@@ -8,17 +8,17 @@ const user = document.querySelector("#user-score");
 
 const showWinner = (userWin) => {
   if (userWin === true) {
-    msg.innerText = "You WON the Game!" ;
-    msg.style.backgroundColor = "Red" ;
-    userScore = user.innerText ;
+    msg.innerText = `You win! Your ${userChoice} beats the ${compChoice}`;
+    msg.style.backgroundColor = "Red";
+    userScore = user.innerText;
     userScore++;
-    user.innerText = userScore ;
+    user.innerText = userScore;
   } else {
-    msg.innerText = "You LOSE the Game!";
-    msg.style.backgroundColor = "Green" ;
-    compScore = comp.innerText ;
+    msg.innerText = `You LOSE! ${compChoice} beats your ${user}`;
+    msg.style.backgroundColor = "Green";
+    compScore = comp.innerText;
     compScore++;
-    comp.innerText = compScore ;
+    comp.innerText = compScore;
   }
 };
 
@@ -30,7 +30,7 @@ const genCompChoice = () => {
 
 const drawGame = () => {
   msg.innerText = "Game was a DRAW!";
-  msg.style.backgroundColor = "black"
+  msg.style.backgroundColor = "black";
 };
 
 const playGame = (userChoice) => {
@@ -50,14 +50,13 @@ const playGame = (userChoice) => {
     } else if (userChoice === "scissors") {
       //paper,rock
       userWin = compChoice === "paper" ? true : false;
-    } else{
+    } else {
       //scissors,rock
       userWin = compChoice === "rock" ? false : true;
     }
     showWinner(userWin);
   }
 };
-
 
 choices.forEach((choice) => {
   console.log(choice);
@@ -66,5 +65,3 @@ choices.forEach((choice) => {
     playGame(userChoice);
   });
 });
-
-
